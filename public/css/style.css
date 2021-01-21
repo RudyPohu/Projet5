@@ -1,0 +1,35 @@
+/*******************style du blog**********************/
+
+
+.sliderhome img{
+		width: 100%;
+}
+.sliderhome h1{
+	position: absolute;
+	margin: 12rem;
+}
+
+#menu{
+	display: flex;
+	align-items: center;
+}
+
+.menu{
+	width: 8rem;
+	list-style-type: none;
+}
+
+.entete{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+@media screen and (max-width: 900px){
+
+}
+
+@media screen and (max-width: 500px){
+	
+}
