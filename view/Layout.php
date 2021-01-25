@@ -19,12 +19,11 @@
 <!--le menu-->
                 <nav>
                     <ul  id="menu">
+                        <li class="menu"><a href="index.php" title="Page d'accueil">Page d'accueil</a></li>
                         <li class="menu"><a href="index.php" title="Carte interactive">Carte interactive</a></li>
-                        <li class="menu"><a href="index.php?action=xxx" title="Nos destinations">Nos destinations</a></li>
-                        <li class="menu"><a href="index.php?action=xxx" title="Galerie photo">Galerie photo</a></li>
-                        <li class="menu"><a href="index.php?action=xxx" title="Chat">Chatter avec nous</a></li>
+                        <li class="menu"><a href="index.php?action=Destinations" title="Nos destinations">Nos destinations</a></li>
                         <li class="menu"><a href="index.php?action=xxx" title="espace membre">Espace membre</a></li>
-                        <li class="menu"><a href="index.php?action=xxx" title="Connection">Connection</a></li>
+                        <li class="menu"><a href="index.php?action=Login" title="Connection">Login</a></li>
                     </ul>
                 </nav>
             </div>
