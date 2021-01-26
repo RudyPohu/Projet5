@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Model\UserManager;
+use Model\{UserManager};
 
 class UserController {
     
@@ -25,7 +25,8 @@ class UserController {
 		if($errors === 0) 
 		{	
 			$manager = new UserManager();
-			$manager->getUser($_POST['login']); 
+			$user = $manager->getUser($_POST['login']); /*bcrypt*/
+			var_dump($user, $_POST['pass']);
 			if($user and password_verify($_POST['pass'], $user->pass())) {
 				$_SESSION['id'] = $user->id();
 				$_SESSION['login'] = $user->login();
@@ -36,7 +37,7 @@ class UserController {
 				$_SESSION['errors'] = 'Login ou mot de passe incorrect';
 			}
 		}
-		header('location:index.php?action=Login');
-		return;
+		// header('location:index.php?action=Login');
+		// return;
 	}
 }

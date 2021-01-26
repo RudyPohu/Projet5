@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Model\{PostManager};
+use Model\{PostManager, CommentManager};
 
 class frontController {
 
@@ -10,18 +10,29 @@ class frontController {
 		require "../view/HomePage.php";
 	}
 
-	public function Destinations() {
-
+	public function Posts() {
 		$manager = new PostManager();
 		$posts = $manager->getPost();
-		require '../view/Destinations.php';
+		require '../view/Posts.php';
+	}
+
+	public function OnePost() {
+		$id = $_GET['post_id'] ?? '';
+		if($id == '') {
+			header('location: index.php');
+			return;
+		}
+		$manager = new PostManager();
+		$post = $manager->getOnePost($id);
+		$managerComments = new CommentManager();
+		$comments = $managerComments->getComments($id);
+		require '../view/PostAndComments.php';	
 	}
 
 	public function Login()	{
 		require "../view/LoginPage.php";
 	}
 
-	// redirection vers le tableau de bord si la session est active
 	public function Dashboard()
 	{
 		if(isset($_SESSION['id'])) {

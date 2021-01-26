@@ -5,9 +5,9 @@ namespace Model;
 class Post {
 	
 	public $_id;
-	public $_titre;
-	public $_contenu;
-	public $_date;
+	public $_title;
+	public $_content;
+	public $_date_post;
 
 	public function __construct(array $datas) {
 		foreach($datas as $key =>$data) {
@@ -21,16 +21,16 @@ class Post {
 		return $this->_id;
 	}
 
-	public function titre()	{
-		return $this->_titre;
+	public function title()	{
+		return $this->_title;
 	}
 
-	public function contenu() {
-		return $this->_contenu;
+	public function content() {
+		return $this->_content;
 	}
 
 	public function getDate() {
-		return $this->_date;
+		return $this->_date_post;
 	}
 
 	//setters
@@ -38,17 +38,17 @@ class Post {
 		$this->_id = $id;
 	}
 
-	public function setTitre($titre) {
-		if(mb_strlen($titre) >= 3) 
-			$this->_titre = $titre;
+	public function setTitle($title) {
+		if(mb_strlen($title) >= 3) 
+			$this->_title = $title;
 	}
 
-	public function setContenu($contenu) {
-		$this->_contenu = $contenu;
+	public function setContent($content) {
+		$this->_content = $content;
 	}
 
-	public function setDate($date) {
-		$this->_date = $date;
+	public function setDate($date_post) {
+		$this->_date_post = $date_post;
 	}
 
 

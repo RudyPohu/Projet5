@@ -8,7 +8,7 @@ class PostManager extends Bdd {
 	public function getPost() {
 		$this->getBDD();
 		$datas = [];
-		$q = $this->_db->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y\') AS date FROM destinations ORDER BY date_creation LIMIT 0, 10');
+		$q = $this->_db->query('SELECT id, title, content, DATE_FORMAT(date_post, \'%d/%m/%Y\') AS date FROM posts ORDER BY id LIMIT 0, 10');
 		$posts = $q->fetchAll(\PDO::FETCH_ASSOC);
 		$q->closeCursor();
 		foreach($posts as $post) {
@@ -18,5 +18,12 @@ class PostManager extends Bdd {
 		return $datas;
 	}
 
-
+	public function getOnePost($id) {
+		$this->getBDD();
+		$req = $this->_db->prepare('SELECT id, title, content, DATE_FORMAT(date_post, \'%d/%m/%Y\') AS date FROM posts WHERE id = ?');
+		$req->execute(array($id));
+		$thisdata = $req->fetch(\PDO::FETCH_ASSOC);
+		$Post = new Post($thisdata);
+		return $Post;
+	}
 } 

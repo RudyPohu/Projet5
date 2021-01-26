@@ -17,10 +17,20 @@ switch($action) {
 		$controller->index();
 	break;
 
-	case 'Destinations':
+	case 'Posts':
 		$controller = new FrontController();
-		$controller->Destinations();
+		$controller->Posts();
 	break;
+
+	case 'OnePost':
+		$controller = new FrontController();
+		$controller->OnePost();
+	break;
+
+
+
+
+
 
 	case 'Login':
 		$controller = new FrontController();
