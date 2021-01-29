@@ -40,4 +40,14 @@ class UserController {
 		// header('location:index.php?action=Login');
 		// return;
 	}
+
+		// arret de la session lors de la demande de deconnection depuis le dashboard, redirection
+	public function Disconnection() {
+		if(isset($_SESSION['id'])) {
+			unset($_SESSION);
+			session_destroy();
+			header('location:index.php');
+			return;
+		}
+	}
 }

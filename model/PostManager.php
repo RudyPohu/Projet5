@@ -26,4 +26,29 @@ class PostManager extends Bdd {
 		$Post = new Post($thisdata);
 		return $Post;
 	}
+
+	// fonction permettant l'enregistrement d'un nouveau chapitre en BDD
+	public function StorePost($title, $content) {
+			// Insertion en base de données
+			$this->getBDD();
+			$req = $this->_db->prepare('INSERT INTO posts (title, content, date_post) VALUES(?, ?, NOW())');
+			$req->execute(array($title, $content));
+			$req->closeCursor();
+	}
+
+		// fonction permettant la modification d'un chapitre en BDD
+	public function Update($id, $title, $content) {
+		$this->getBDD();
+		$req = $this->_db->prepare('UPDATE posts SET title = ?, content = ?  WHERE id = ?');
+		$req->execute(array($title, $content, $id));
+		$req->closeCursor();
+	}
+
+		// fonction permettant la suppression d'un chapitre en BDD
+	public function Delete($id) {
+		$this->getBDD();
+		$req = $this->_db->prepare('DELETE FROM posts WHERE id = ?');
+		$req->execute(array($id));
+		$req->closeCursor();
+	}
 } 

@@ -8,13 +8,8 @@ require '../vendor/autoload.php'; // instanciation des class
 $dotenv = Dotenv\Dotenv::createImmutable("../"); // fichier de configuration
 $dotenv->load();
 
-?>
-	<script type="text/javascript" src="js/map.js"></script>
-<?php
 
-
-
-use Controller\{FrontController, UserController};
+use Controller\{FrontController, UserController, AdminController};
 
 switch($action) {
 	
@@ -38,9 +33,6 @@ switch($action) {
 		$controller->GetMap();
 	break;
 
-
-
-
 	case 'Login':
 		$controller = new FrontController();
 		$controller->Login();
@@ -55,5 +47,47 @@ switch($action) {
 		$controller = new FrontController();
 		$controller->Dashboard();
 	break;
+
+	case 'NewPost':
+		$controller = new AdminController();
+		$controller->NewPost();
+	break;
+
+	case 'StorePost':
+		$controller = new AdminController();
+		$controller->StorePost();
+	break;
+
+	case 'ListPost':
+		$controller = new AdminController();
+		$controller->ListPost();
+	break;
+
+	case 'UpdatePost':
+		$controller = new AdminController();
+		$controller->UpdatePost();
+	break;
+
+	case 'Update':
+		$controller = new AdminController();
+		$controller->Update();
+	break;
+
+	case 'DeletePost':
+		$controller = new AdminController();
+		$controller->DeletePost();
+	break;
+
+	case 'Delete':
+		$controller = new AdminController();
+		$controller->Delete();
+	break;
+
+	case 'Disconnection':
+		$controller = new UserController();
+		$controller->Disconnection();
+	break;
+
+	
 }
 

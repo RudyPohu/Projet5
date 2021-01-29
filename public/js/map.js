@@ -1,7 +1,7 @@
 // affichage de la carte:
 var map = {
-	lat: "45.750000",
-	lng: "4.850000",
+	lat: "52.94864202150816",
+	lng: "9.573315144702407",
 	macarte: "",
 	markerCluster: "",
 
@@ -16,7 +16,7 @@ var map = {
 	        // Lien vers la source des données
 	        attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
 	        minZoom: 1,
-	        maxZoom: 20
+	        maxZoom: 5
 	    }).addTo(this.macarte);
 	}
 };
