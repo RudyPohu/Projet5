@@ -18,7 +18,7 @@
         <?php echo htmlspecialchars($post->content()); ?>
     </div>
 
-    <div class="button"><a href="index.php?action=OnePost&post_id=<?php echo $post->id(); ?>">Lire la suite</a></div>
+    <div class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:bg-yellow-400 p-1 m-2"><a href="index.php?action=OnePost&post_id=<?php echo $post->id(); ?>">Lire la suite</a></div>
 
 
     <?php

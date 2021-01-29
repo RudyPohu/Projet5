@@ -46,12 +46,12 @@ endforeach;
 	?>
     <p>
         <label id="autor">Votre pseudo:</label> : <br />
-        <input class="" type="text" name="autor" /><br /><br />
+        <input class="border-2 border-solid rounded-lg border-green-600  p-1 m-2" type="text" name="autor" /><br /><br />
         <label id="comment">Votre message:</label> : <br />
-        <textarea class="" name="comment" rows="6" cols="25"></textarea><br />
+        <textarea class="border-2 border-solid rounded-lg border-green-600  p-1 m-2" name="comment" rows="6" cols="25"></textarea><br />
         <input type="hidden" name="post_id" value="<?php echo $post->id(); ?>" /><br />
 
-        <input class="" type="submit" value="Envoyer" />
+        <input class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:bg-yellow-400 p-1 m-2" type="submit" value="Envoyer" />
 	</p>
 </form> 
 	

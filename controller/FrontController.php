@@ -29,6 +29,17 @@ class frontController {
 		require '../view/PostAndComments.php';	
 	}
 
+	public function GetMap() {
+		?>
+			<script type="text/javascript">
+				window.onload = function() {
+					map.initMap();
+				}
+			</script>
+		<?php
+		require '../view/MapPage.php';
+	}
+
 	public function Login()	{
 		require "../view/LoginPage.php";
 	}

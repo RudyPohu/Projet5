@@ -19,12 +19,12 @@
             ?>
 
             <h2>Votre login:</h2>
-            <input type="text" name="login" class="">
+            <input class="border-2 border-solid rounded-lg border-green-600  p-1 m-2" type="text" name="login" class="">
             <br /><br />
             <h2>Votre mot de passe:</h2> 
-			<input type="password" name="pass" class="">
+			<input class="border-2 border-solid rounded-lg border-green-600  p-1 m-2" type="password" name="pass" class="">
             <br /><br /><br />
-			<input class="" type="submit" value="valider">
+			<input class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:bg-yellow-400 p-1 m-2" type="submit" value="valider">
 		</form>		
 	</div>
 </section>

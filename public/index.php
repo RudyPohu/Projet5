@@ -8,6 +8,12 @@ require '../vendor/autoload.php'; // instanciation des class
 $dotenv = Dotenv\Dotenv::createImmutable("../"); // fichier de configuration
 $dotenv->load();
 
+?>
+	<script type="text/javascript" src="js/map.js"></script>
+<?php
+
+
+
 use Controller\{FrontController, UserController};
 
 switch($action) {
@@ -27,7 +33,10 @@ switch($action) {
 		$controller->OnePost();
 	break;
 
-
+	case 'Map':
+		$controller = new FrontController();
+		$controller->GetMap();
+	break;
 
 
 
@@ -47,3 +56,4 @@ switch($action) {
 		$controller->Dashboard();
 	break;
 }
+
