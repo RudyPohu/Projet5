@@ -33,14 +33,29 @@ switch($action) {
 		$controller->GetMap();
 	break;
 
+	case 'Markers':
+		$controller = new FrontController();
+		$controller->GetMarkers();
+	break;
+
+	case 'StoreComment':
+		$controller = new FrontController();
+		$controller->StoreComment();
+	break;	
+
 	case 'Login':
 		$controller = new FrontController();
 		$controller->Login();
 	break;
 
-	case 'Connexion':
+	case 'Entry':
 		$controller = new UserController();
-		$controller->Connexion();
+		$controller->Entry();
+	break;
+
+	case 'Connection':
+		$controller = new UserController();
+		$controller->Connection();
 	break;
 
 	case 'Dashboard':
@@ -82,6 +97,16 @@ switch($action) {
 		$controller = new AdminController();
 		$controller->Delete();
 	break;
+
+	case 'NewMarker':
+		$controller = new AdminController();
+		$controller->NewMarker();
+	break;
+
+	case 'StoreMarker':
+		$controller = new AdminController();
+		$controller->StoreMarker();
+	break;	
 
 	case 'Disconnection':
 		$controller = new UserController();

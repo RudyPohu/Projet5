@@ -13,4 +13,21 @@ class UserManager extends Bdd {
         $user = new User($resultat);
         return $user;
     }
+
+	public function StoreUser($login, $hashed_password) {
+		$this->getBDD();
+		$req = $this->_db->prepare('INSERT INTO users (login, pass) VALUES(?, ?)');
+		$req->execute(array($login, $hashed_password));
+		$req->closeCursor();
+	}
+
+    public function FindUser() {
+        $this->getBDD();
+        $req = $this->_db->prepare('SELECT * FROM users');
+        $req->execute(array());
+        $resultat = $req->fetch(\PDO::FETCH_ASSOC);
+        $user = new User($resultat);
+        return $user;
+    }
+
 }

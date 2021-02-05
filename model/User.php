@@ -5,6 +5,7 @@ namespace Model;
 class User {
 	
 	private $_id;
+	private $_admin;
 	private $_login;
 	private $_pass;
 
@@ -19,6 +20,10 @@ class User {
 		return $this->_id;
 	}
 
+	public function admin() {
+		return $this->_admin;
+	}
+
 	public function login() {
 		return $this->_login;
 	}
@@ -29,6 +34,10 @@ class User {
 
 	public function setId(int $id) {
 		$this->_id = $id;
+	}
+
+	public function setAdmin($admin) {
+		$this->_admin = $admin;
 	}
 
 	public function setLogin($login) {

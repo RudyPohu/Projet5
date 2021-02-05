@@ -17,4 +17,12 @@ class CommentManager extends Bdd {
 		}
 		return $donnees;
 	}
+
+		// fonction permettant l'enregistrement d'un nouveau commentaire en BDD
+	public function Store($post_id, $author, $comment) {
+		$this->getBDD();
+		$req = $this->_db->prepare('INSERT INTO comments (post_id, author, comment, date_comment) VALUES(?, ?, ?, NOW())');
+		$req->execute(array($post_id, $author, $comment));
+		$req->closeCursor();
+	}
 }

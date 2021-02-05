@@ -17,20 +17,29 @@
     <body>
         <header>
                 
-            <div class="h-20 border-b-2 border-red-600 flex justify-between items-center  bg-red-900     w-full  ">
+            <div class="h-20 border-b-2 border-gray-600 flex justify-between items-center  bg-gray-300     w-full  ">
                 <div id="">
-                    <h3 class="text-3xl text-yellow-500 font-bold p-3"> FAMILY WORLD </h3>
+                    <h3 class="text-3xl text-yellow-500 font-bold p-3"> TABLEAU DE BORD </h3>
                 </div>
 <!--le menu-->
+                    <?php if(isset($_SESSION['admin'])) {
+                        ?>
+                        <h3 class="text-2xl text-yellow-500 font-bold p-3"><?php echo $_SESSION['login'];  ?> ,Vous êtes connecté</h3> 
+                    <?php 
+                    }
+                    else {
+                        ?><h3 class="hidden"></h3>
+                    <?php    
+                    }
+                    ?>
+
                 <nav>
                     <ul class="flex">
-                        <li class="bg-red-400 border-2 border-solid rounded-lg border-red-600 hover:bg-yellow-400 p-1 m-2"><a href="index.php" title="Page d'accueil">Page d'accueil</a></li>
-                        <li class="bg-red-400 border-2 border-solid rounded-lg border-red-600 hover:bg-yellow-400 p-1 m-2"><a href="index.php?action=Map" title="Carte interactive">Carte interactive</a></li>
-                        <li class="bg-red-400 border-2 border-solid rounded-lg border-red-600 hover:bg-yellow-400 p-1 m-2"><a href="index.php?action=Posts" title="Nos destinations">Nos destinations</a></li>
-                        <li class="bg-red-400 border-2 border-solid rounded-lg border-red-600 hover:bg-yellow-400 p-1 m-2">
-                            <?php if(isset($_SESSION['id'])) 
-                            {
-                                ?><a href="index.php?action=Dashboard" title="aller au Tableau de bord">Tableau de bord</a> 
+                        <li class="bg-gray-400 border-2 border-solid rounded-lg border-gray-600 hover:bg-yellow-400 p-1 m-2"><a href="index.php" title="Page d'accueil">Retour au site web</a></li>
+                        <li class="bg-gray-400 border-2 border-solid rounded-lg border-gray-600 hover:bg-yellow-400 p-1 m-2">
+                            <?php if(isset($_SESSION['admin'])) {
+                                ?>
+                                <a href="index.php?action=Dashboard" title="aller au Tableau de bord">Tableau de bord</a> 
                             <?php 
                             }
                             else {

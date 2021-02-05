@@ -17,8 +17,10 @@ ob_start();
 	<script type="text/javascript">
 		window.onload = function() {
 			map.initMap();
+			map.initMarker();
 		}
 	</script>
+
 <?php
 $script= ob_get_clean();
 require 'Template.php';

@@ -18,5 +18,30 @@ var map = {
 	        minZoom: 1,
 	        maxZoom: 5
 	    }).addTo(this.macarte);
+	},
+
+	placeMarkers: function(markers) {
+		for(marker of markers) {
+			
+			var marker = L.icon({
+			    iconUrl: 'my-icon.png',
+			    iconSize: [38, 95],
+			    iconAnchor: [22, 94],
+			    popupAnchor: [-3, -76],
+			    shadowUrl: 'my-icon-shadow.png',
+			    shadowSize: [68, 95],
+			    shadowAnchor: [22, 94]
+			});
+
+			L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);
+	},
+
+	initMarker: function() {
+		fetch('index.php?action=Markers')
+		.then(datas=>datas.json())
+		.then(function(datas) {
+			console.log(datas)
+			this.placeMarkers(datas);
+		})
 	}
 };
