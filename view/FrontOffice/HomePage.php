@@ -24,9 +24,9 @@
     </div>
 </section>
 
-<section class=" pt-80">
+<section class=" pt-96">
 	<div class=" bg-yellow-400 pb-28">
-		<h2 class="text-4xl text-green-600 text-center p-16">Découvrez toutes nos destinations</h2>
+		<h2 class="text-4xl text-green-600 text-center pt-24 p-16">Découvrez toutes nos destinations</h2>
 	    
 	    <div class="flex justify-around ">	
 			<?php

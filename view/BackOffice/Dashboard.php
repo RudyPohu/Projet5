@@ -1,18 +1,23 @@
 <?php $title = "Dashboard"; ?>
 <?php ob_start(); ?>
    
-<section class="bg-gray-200 pb-48">
-    <h1 class="text-4xl text-center text-gray-600 p-12">Bonjour <?php echo $_SESSION['login'];  ?>, bienvenue dans votre tableau de bord.</h1>
 
-    <h2 class="text-4xl text-center text-gray-600 pb-8">Que voulez-vous faire aujourd'hui ?</h2>
+<section class="bg-green-800 pb-20 ">
+    <h1 class=" text-3xl text-green-600 ml-24 pt-8">Bonjour <?php echo $_SESSION['login'];  ?>, bienvenue dans votre tableau de bord.</h1>
+
+    <h2 class=" text-2xl text-green-600 ml-24 p-8">Que voulez-vous faire aujourd'hui ?</h2>
     
-    <div class="flex justify-center	pb-16">
-        <div class="w-80 text-center h-24 pt-8 m-8 bg-gray-400 border-2 border-solid rounded-lg border-gray-600 hover:bg-yellow-400 p-1 m-2"> <a href="index.php?action=ListPost ">Accéder aux destinations postées</a></div>
-        <div class="w-80 text-center h-24 pt-8 m-8 bg-gray-400 border-2 border-solid rounded-lg border-gray-600 hover:bg-yellow-400 p-1 m-2"> <a href="index.php?action=NewPost ">Ajouter un nouvel article du voyage</a></div>
-        <div class="w-80 text-center h-24 pt-8 m-8 bg-gray-400 border-2 border-solid rounded-lg border-gray-600 hover:bg-yellow-400 p-1 m-2"> <a href="index.php?action=NewMarker ">Ajouter une nouvelle étape sur votre carte</a></div>
-    </div>    
-    <div class="w-1/2 m-auto text-center h-12 pt-2 m-16 bg-white border-2 border-solid rounded-lg border-gray-600 hover:bg-yellow-400 p-1 m-2 text-gray-800"> <a href="index.php?action=Disconnection ">Me déconnecter</a></div>
+
+        <div class="w-3/6 h-20 bg-white text-green-800 border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-6 ml-24 w-64 text-center"> <a href="index.php?action=ListPost ">Accéder aux destinations postées (modifier ou supprimer un article)</a></div>
+        <div class="w-3/6 h-20 bg-white text-green-800 border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-6 ml-24 w-64 text-center"> <a href="index.php?action=NewPost ">Ajouter un nouvel article du voyage à votre site</a></div>
+        <div class="w-3/6 h-20 bg-white text-green-800 border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-6 ml-24 w-64 text-center"> <a href="index.php?action=NewMarker ">Ajouter une nouvelle étape sur votre carte</a></div>
+       
+
+    <div class="bg-green-800 p-16 ">
+    	<div class="ml-8 text-center bg-green-500 text-white border-2 border-solid rounded-lg border-white hover:border-green-800 hover:text-black hover:bg-green-600 p-2 w-80 h-12 text-center"> <a href="index.php?action=Disconnection ">Me déconnecter</a></div>
+    	</div>
     </div>
+
 </section>
        
 <?php

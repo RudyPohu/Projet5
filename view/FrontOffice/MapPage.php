@@ -17,7 +17,8 @@ ob_start();
 	<script type="text/javascript">
 		window.onload = function() {
 			map.initMap();
-			map.initMarker();
+			// map.placeMarkers();
+			// map.initMarker();
 		}
 	</script>
 

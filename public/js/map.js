@@ -43,5 +43,5 @@ var map = {
 			console.log(datas)
 			this.placeMarkers(datas);
 		})
-	}
+	},
 };

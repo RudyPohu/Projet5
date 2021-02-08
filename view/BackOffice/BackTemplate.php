@@ -11,20 +11,27 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin=""/>
+        <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+        <script type="text/javascript">
+          tinymce.init({
+            selector : "#tiny"
+          });
+
+        </script>
 
     </head>
 
     <body>
         <header>
                 
-            <div class="h-20 border-b-2 border-gray-600 flex justify-between items-center  bg-gray-300     w-full  ">
+            <div class="h-20 border-b-2 border-green-800 flex justify-between items-center  bg-green-400  px-12  w-full  ">
                 <div id="">
-                    <h3 class="text-3xl text-yellow-500 font-bold p-3"> TABLEAU DE BORD </h3>
+                    <h3 class="text-3xl text-green-800 font-bold p-3"> TABLEAU DE BORD </h3>
                 </div>
 <!--le menu-->
                     <?php if(isset($_SESSION['admin'])) {
                         ?>
-                        <h3 class="text-2xl text-yellow-500 font-bold p-3"><?php echo $_SESSION['login'];  ?> ,Vous êtes connecté</h3> 
+                        <h3 class="text-2xl text-green-700 font-bold p-3"><?php echo $_SESSION['login'];  ?> ,Vous êtes connecté</h3> 
                     <?php 
                     }
                     else {
@@ -35,8 +42,8 @@
 
                 <nav>
                     <ul class="flex">
-                        <li class="bg-gray-400 border-2 border-solid rounded-lg border-gray-600 hover:bg-yellow-400 p-1 m-2"><a href="index.php" title="Page d'accueil">Retour au site web</a></li>
-                        <li class="bg-gray-400 border-2 border-solid rounded-lg border-gray-600 hover:bg-yellow-400 p-1 m-2">
+                        <li class="bg-green-600 border-2 border-solid rounded-lg border-green-800 hover:bg-green-500 px-3 p-1 m-2"><a href="index.php" title="Page d'accueil">Retour à la page d'accueil de votre site web</a></li>
+<!--                         <li class="bg-gray-400 border-2 border-solid rounded-lg border-gray-600 hover:bg-yellow-400 p-1 m-2">
                             <?php if(isset($_SESSION['admin'])) {
                                 ?>
                                 <a href="index.php?action=Dashboard" title="aller au Tableau de bord">Tableau de bord</a> 
@@ -46,7 +53,7 @@
                                 ?><a href="index.php?action=Login" title="Connexion">Connexion</a></li>
                             <?php    
                             }
-                            ?>
+                            ?> -->
                     </ul>
                 </nav>
             </div>

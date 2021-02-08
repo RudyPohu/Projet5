@@ -2,13 +2,11 @@
 <?php ob_start(); ?>
 
        
-<!-- le titre -->   
-<div>
-    <h2 class="">Ajout d'une destination sur la carte</h2>
-</div>	
+<section class="bg-green-800 ">
+    <h1 class=" text-3xl text-green-600 ml-24  p-8">Publier une nouvelle destination sur la carte:</h1>
+  
+    <div class="mx-24 m-auto bg-white p-8">  
 
-<section class="">
-    <div class="">
 		<form enctype="multipart/form-data" action="index.php?action=StoreMarker" method="post">
             <?php
             if(isset($_SESSION['errors'])) 
@@ -18,26 +16,26 @@
             }
             ?>
 
-            <h2>Votre destiantion:</h2>
-            <input class="border-2 border-solid rounded-lg border-green-600  p-1 m-2" type="text" name="name" class="">
+            <label class=" text-green-600 " for="title">Nom de la destination:</label><br /><br />
+            <input class="w-full border-2 border-solid rounded-lg border-green-800 pl-4 py-2" type="text" name="name">
             <br /><br />
-            <h2>Latitude:</h2>
-            <input class="border-2 border-solid rounded-lg border-green-600  p-1 m-2" type="text" name="lat" class="">
+            <label class="text-green-600 " for="title">Latitude de la destination:</label><br /><br />
+            <input class="w-full border-2 border-solid rounded-lg border-green-800 pl-4 py-2" type="text" name="lat">
             <br /><br />
-            <h2>Longitude:</h2>
-            <input class="border-2 border-solid rounded-lg border-green-600  p-1 m-2" type="text" name="lon" class="">
+            <label class=" text-green-600 " for="title">Longitude de la destination:</label><br /><br />
+            <input class="w-full border-2 border-solid rounded-lg border-green-800 pl-4 py-2" type="text" name="lon">
             <br /><br />
-<!--             <h2>image associée:</h2>
-            <input class="border-2 border-solid rounded-lg border-green-600  p-1 m-2" type="file" name="img" class="">
-            <br /><br /> -->
-            <h2>Votre teste:</h2>
-            <input class="border-2 border-solid rounded-lg border-green-600  p-1 m-2" type="text" name="content" class="">
-            <br /><br />
-
-            <br /><br /><br />
-			<input class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:bg-yellow-400 p-1 m-2" type="submit" value="valider">
+            <label class=" text-green-600 " for="content">Contenu à afficher:</label><br><br />
+            <textarea id="tiny"  class="w-full border-2 border-solid rounded-lg border-green-800 p-4" name="content" rows="25" cols="80">Votre texte ici ...</textarea><br />
+            <div class="flex justify-end">
+                <input class="bg-green-600 text-white border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-1 mt-4 px-2 text-center" type="submit" value="Enregistrer et publier cette destination sur la carte" />
+            </div>
 		</form>		
 	</div>
+
+    <div class="bg-green-800  p-16">
+        <div id="retour" class="m-auto text-center bg-green-500 text-white border-2 border-solid rounded-lg border-white hover:border-green-800 hover:text-black hover:bg-green-600 p-2 w-80 h-12 text-center"> <a href="index.php?action=Dashboard" title="aller à la page connexion">Annuler et revenir au tableau de bord</a></div>
+    </div> 
 </section>
 		
 	
