@@ -8,7 +8,7 @@ class PostManager extends Bdd {
 	public function getPost() {
 		$this->getBDD();
 		$datas = [];
-		$q = $this->_db->query('SELECT id, title, content, DATE_FORMAT(date_post, \'%d/%m/%Y\') AS date FROM posts ORDER BY id LIMIT 0, 10');
+		$q = $this->_db->query('SELECT id, title, content, DATE_FORMAT(date_post, \'%d/%m/%Y\') AS date FROM posts ORDER BY id LIMIT 0, 20');
 		$posts = $q->fetchAll(\PDO::FETCH_ASSOC);
 		$q->closeCursor();
 		foreach($posts as $post) {

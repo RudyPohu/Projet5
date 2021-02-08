@@ -13,11 +13,11 @@
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin=""/>
        <!-- style des markers -->
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" />
+<!--         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" /> -->
         <!-- Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<!--         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ -->
     </head>
 
     <body>
@@ -71,8 +71,8 @@
             <?= $content ?>
         </div>
 
-        <footer id="">            
-            <p>Copyright Rudy POHU - Etudiant chez OpenClassrooms - 2020</p>    
+        <footer class="bg-yellow-400">            
+            <p class="text-center text-green-700">Copyright Rudy POHU - Etudiant chez OpenClassrooms - 2020</p>    
         </footer>
 
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"

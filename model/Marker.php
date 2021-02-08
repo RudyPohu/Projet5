@@ -8,8 +8,8 @@ class Marker {
 	public $_name;
 	public $_lat;
 	public $_lon;
-	// public $_img;
 	public $_content;
+	public $_link;
 	public $_date_marker;
 
 	public function __construct(array $datas) {
@@ -36,9 +36,9 @@ class Marker {
 		return $this->_lon;
 	}
 
-	// public function img()	{
-	// 	return $this->_img;
-	// }
+	public function link()	{
+		return $this->_link;
+	}
 
 	public function content() {
 		return $this->_content;
@@ -64,9 +64,9 @@ class Marker {
 		public function setLon($lon) {
 			$this->_lon = $lon;
 	}
-	// 	public function setImg($img) {
-	// 		$this->_img = $img;
-	// }
+		public function setLink($link) {
+			$this->_link = $link;
+	}
 	public function setContent($content) {
 		$this->_content = $content;
 	}

@@ -11,13 +11,14 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin=""/>
-        <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+
+<!--         <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
         <script type="text/javascript">
           tinymce.init({
             selector : "#tiny"
           });
 
-        </script>
+        </script> -->
 
     </head>
 
@@ -43,7 +44,7 @@
                 <nav>
                     <ul class="flex">
                         <li class="bg-green-600 border-2 border-solid rounded-lg border-green-800 hover:bg-green-500 px-3 p-1 m-2"><a href="index.php" title="Page d'accueil">Retour à la page d'accueil de votre site web</a></li>
-<!--                         <li class="bg-gray-400 border-2 border-solid rounded-lg border-gray-600 hover:bg-yellow-400 p-1 m-2">
+                        <li class="bg-green-600 border-2 border-solid rounded-lg border-green-800 hover:bg-green-500 px-3 p-1 m-2">
                             <?php if(isset($_SESSION['admin'])) {
                                 ?>
                                 <a href="index.php?action=Dashboard" title="aller au Tableau de bord">Tableau de bord</a> 
@@ -53,7 +54,7 @@
                                 ?><a href="index.php?action=Login" title="Connexion">Connexion</a></li>
                             <?php    
                             }
-                            ?> -->
+                            ?>
                     </ul>
                 </nav>
             </div>
@@ -63,8 +64,8 @@
             <?= $content ?>
         </div>
 
-        <footer id="">            
-            <p>Copyright Rudy POHU - Etudiant chez OpenClassrooms - 2020</p>    
+        <footer class="bg-green-500">            
+            <p class="text-center text-green-700">Copyright Rudy POHU - Etudiant chez OpenClassrooms - 2020</p>    
         </footer>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="

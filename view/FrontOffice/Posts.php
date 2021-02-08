@@ -8,9 +8,9 @@
 <?php
     foreach($posts as $post):
     ?>
-    <div class="w-9/12 m-auto bg-white ">
-        <div class="text-center p-16 border-solid border-b-8 border-yellow-400">
-            <h2 class="text-4xl text-green-600 mb-8">
+    <div class="w-9/12 m-auto bg-white">
+        <div class="text-center p-8 border-solid border-b-8 border-yellow-400">
+            <h2 class="text-4xl text-green-600 mb-4">
                 <?php echo htmlspecialchars($post->title()); ?>
                 <br /><em class="text-2xl text-green-600">Publié le <?php echo $post->getDate(); ?></em>
             </h2> 
@@ -26,7 +26,7 @@
             ?>
           
         
-            <div class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:bg-green-400 w-32 m-auto p-1 text-center mt-16"><a href="index.php?action=OnePost&post_id=<?php echo $post->id(); ?>">Lire la suite</a>
+            <div class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:bg-green-400 w-32 m-auto p-1 text-center mt-8"><a href="index.php?action=OnePost&post_id=<?php echo $post->id(); ?>">Lire la suite</a>
             </div>
 
         </div>

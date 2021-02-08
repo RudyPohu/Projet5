@@ -28,13 +28,13 @@
 	<div class=" bg-yellow-400 pb-28">
 		<h2 class="text-4xl text-green-600 text-center pt-24 p-16">Découvrez toutes nos destinations</h2>
 	    
-	    <div class="flex justify-around ">	
+	    <div class="flex flex-wrap justify-around">	
 			<?php
 		    foreach($posts as $post):
 		    ?>
 	    
-			<div class="border-2 border-solid rounded-lg border-green-600 w-96 p-3 bg-yellow-300 shadow-2xl	">
-			    <div class="text-center">
+			<div class=" border-2 border-solid rounded-lg border-green-600 w-96 p-3 bg-yellow-300 shadow-2xl mb-8	">
+			    <div class="text-center ">
 			        <h3 class="text-3xl text-green-600 pb-4">
 			            <?php echo htmlspecialchars($post->title()); ?>
 			            <br /><em class="text-sm text-green-600 ">Publié le <?php echo $post->getDate(); ?></em>
@@ -51,12 +51,15 @@
 		            ?>
 			    </div>
 
-			    <div class="animate-bounce bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:text-white hover:bg-green-800 w-32 text-center m-auto p-1 mt-8"><a href="index.php?action=OnePost&post_id=<?php echo $post->id(); ?>">Lire la suite</a>
+			    <div class=" bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:text-white hover:bg-green-800 w-32 text-center m-auto p-1 mt-8"><a href="index.php?action=OnePost&post_id=<?php echo $post->id(); ?>">Lire la suite</a>
 			    </div>
 			</div>
 		    <?php
 		    endforeach;
 		    ?>
+
+		    <div class="animate-bounce bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:text-white hover:bg-green-800 w-80 text-center m-auto p-1 mt-8"><a href="index.php?action=Posts">Voir tous les articles</a>
+		    </div>
 		</div>
     </div>
 

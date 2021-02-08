@@ -4,10 +4,10 @@ namespace Model;
 
 class MarkerManager extends Bdd {
    
-	public function StoreMarker($name, $lat, $lon, $content) {
+	public function StoreMarker($name, $lat, $lon, $content, $link) {
 		$this->getBDD();
-		$req = $this->_db->prepare('INSERT INTO markers (name, lat, lon, content, date_marker) VALUES(?, ?, ?, ?, NOW())');
-		$req->execute(array($name, $lat, $lon, $content));
+		$req = $this->_db->prepare('INSERT INTO markers (name, lat, lon, content, link, date_marker) VALUES(?, ?, ?, ?, ?, NOW())');
+		$req->execute(array($name, $lat, $lon, $content, $link));
 		$req->closeCursor();
 	}
 
