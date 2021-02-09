@@ -42,7 +42,7 @@
 			        
                     <?php 
 		            if(strlen($post->content()) > 200) {
-		                echo substr ($post->content(), 0, 400);
+		                echo substr (htmlspecialchars($post->content()), 0, 400);
 		                ?> <p>[...]</p>
 		                <?php
 		            } else {
@@ -51,7 +51,7 @@
 		            ?>
 			    </div>
 
-			    <div class=" bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:text-white hover:bg-green-800 w-32 text-center m-auto p-1 mt-8"><a href="index.php?action=OnePost&post_id=<?php echo $post->id(); ?>">Lire la suite</a>
+			    <div class=" bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:text-white hover:bg-green-800 w-32 text-center m-auto p-1 mt-8"><a href="index.php?action=OnePost&post_id=<?php echo htmlspecialchars($post->id()); ?>">Lire la suite</a>
 			    </div>
 			</div>
 		    <?php
@@ -65,12 +65,25 @@
 
     <div class="bg-green-400 pb-28">
 		<h2 class="text-4xl text-green-800 text-center p-12">Suivez notre trajet</h2>
-		<div class="text-center">
-			<img class="w-1/2 m-auto" src="images/carteeuropenous.png">
-			<div class="animate-bounce">
-				<a class=" bg-yellow-400 border-2 border-solid rounded-lg border-green-600 hover:bg-green-800 hover:text-white p-6 text-center " href="index.php?action=Map" title="Carte interactive">Accéder à notre carte interactive</a>
+		<div class="flex justify-center">
+			<img class="w-96 border-8 border-solid rounded-2xl border-green-500" src="images/carteeuropenous.PNG">
+			<div class=" w-2/5 p-8">
+				<p class=" text-2xl text-green-800 text-center pb-12">Vous souhaitez découvrir les points forts de notre voyage, alors cliquez sur le bouton ci-dessous pour suivre notre itinéraire. Nous mettons à jour régulièrement nos coups de coeur...</p>
+				<div class="text-center">
+					<a class="bg-yellow-400 border-2 border-solid rounded-lg border-green-600 hover:bg-green-800 hover:text-white p-6 text-center  " href="index.php?action=Map" title="Carte interactive">Accéder à notre itinéraire</a>
+				</div>
+				
 			</div>
 		</div>
+	</div>
+
+	<div class="bg-yellow-400 pb-28 ">
+		<h2 class="text-4xl text-green-800 text-center p-12">Suivez également notre aventure sur</h2>
+		<img class="m-auto w-2/5 border-2 border-solid rounded-2xl border-green-500" src="images/LogoFI.jpg">
+		<h2 class="text-4xl text-green-800 text-center p-12">
+			<a class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:text-white hover:bg-green-800  text-center m-auto p-1 mt-8" href="https://www.facebook.com/vivredaventure">Facebook</a>
+			 et 
+			<a class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:text-white hover:bg-green-800  text-center m-auto p-1 mt-8"  href="https://www.instagram.com/vivredaventure/">Instagram</a></h2>
 	</div>
 </section>
 

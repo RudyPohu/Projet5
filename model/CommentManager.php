@@ -8,7 +8,7 @@ class CommentManager extends Bdd {
 	public function getComments($id) {
 		$this->getBDD();
 		$donnees = [];
-		$q = $this->_db->prepare('SELECT id, post_id, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y\') AS date FROM comments WHERE post_id = ?');
+		$q = $this->_db->prepare('SELECT id, post_id, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y\') AS date FROM comments WHERE post_id = ? ');
 		$q->execute(array($id));
 		$comments = $q->fetchAll(\PDO::FETCH_ASSOC);
 		$q->closeCursor();

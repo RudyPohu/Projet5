@@ -43,7 +43,7 @@
                     <ul class="flex">
                          <li class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:bg-yellow-400 p-1 m-2"><a href="index.php" title="Page d'accueil">Page d'accueil</a></li>
                          <li class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:bg-yellow-400 p-1 m-2"><a href="index.php?action=Posts" title="Nos destinations">Nos destinations</a></li>
-                         <li class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:bg-yellow-400 p-1 m-2"><a href="index.php?action=Map" title="Carte interactive">Carte interactive</a></li>
+                         <li class="bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:bg-yellow-400 p-1 m-2"><a href="index.php?action=Map" title="Carte interactive">Notre itinéraire</a></li>
                         
                         <?php if(isset($_SESSION['admin'])) {
                             ?>

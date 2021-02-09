@@ -5,6 +5,12 @@ namespace Controller;
 use Model\{PostManager, MarkerManager};
 
 class AdminController {
+
+	private $postManager;
+
+	public function __construct() {
+		$this->postManager = new PostManager();
+	}
     
     	//affichage de la page nouveau post du dashboard
 	public function NewPost() {
@@ -32,8 +38,7 @@ class AdminController {
 			$_SESSION['errors'] .= 'Le contenu du chapitre n\'a pas un format valide.';
 		}
 		if($errors === 0) {
-			$manager = new PostManager();
-			$manager->StorePost($_POST['title'], $_POST['content']);
+			$this->postManager->StorePost($_POST['title'], $_POST['content']);
 			header('location: index.php?action=ListPost');
 		} 
 		else {
@@ -45,8 +50,7 @@ class AdminController {
 	    //appel à la fonction d'affichage des chapitres dans la page db_post du dashboard, condition de connexion
     public function ListPost() {
 		if(isset($_SESSION['admin'])) {
-			$manager = new PostManager();
-			$posts = $manager->getPost();
+			$posts = $this->postManager->getPost();
 			require '../view/BackOffice/ListPost.php';
 		} else {
 			echo "Vous ne pouvez pas accéder à cette rubrique !";

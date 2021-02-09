@@ -21,13 +21,16 @@ var map = {
 
 
 	initMarker: function() {
+
 		fetch('index.php?action=Markers')
 		.then(datas=>datas.json())
 		.then(function(datas) {
 			for (var marker of datas) {
+				var popup_link = marker['_link'];
+				var popup_content = 'Accéder à l\'article: <a href="'+popup_link+'" class="speciallink">ICI</a>';
 				console.log(marker);
 				L.marker([marker['_lat'], marker['_lon']]).addTo(map.macarte)
-				.bindPopup(marker['_name']+'<br />'+marker['_content']+'<br />'+marker['_link']);
+				.bindPopup(marker['_name']+'<br />'+marker['_content']+'<br />'+popup_content);
 			}
 		});
 	},

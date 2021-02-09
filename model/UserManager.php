@@ -10,8 +10,13 @@ class UserManager extends Bdd {
         $req = $this->_db->prepare('SELECT * FROM users WHERE login = ?');
         $req->execute(array($login));
         $resultat = $req->fetch(\PDO::FETCH_ASSOC);
-        $user = new User($resultat);
-        return $user;
+        if($resultat) {
+            $user = new User($resultat);
+            return $user;
+        }
+        return false;
+        
+        
     }
 
 	public function StoreUser($login, $hashed_password) {

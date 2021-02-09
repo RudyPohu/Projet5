@@ -53,9 +53,16 @@ class UserController {
 		$error_messages = [];
 		$_SESSION['errors'] = '';
 
+		$manager = new UserManager();
+
 		if(empty($_POST['login']) or mb_strlen($_POST['login']) <= 2 or mb_strlen($_POST['login']) > 249) {
 			$errors++;
 			$_SESSION['errors'] .= 'Le login n\'a pas un format valide. ';
+		}
+
+		if ($manager->getUser($_POST['login'])) {
+			$errors++;
+			$_SESSION['errors'] .= 'Le login saisi est déjà pris par un autre utilisateur.';
 		}
 
 		if(empty($_POST['pass']) or mb_strlen($_POST['pass']) <= 3) {
@@ -69,41 +76,17 @@ class UserController {
 
 		if($errors === 0) 
 		{	
-			$manager = new UserManager();
 			$manager->StoreUser($_POST['login'], $hashed_password);
-			
-			$manager = new UserManager();
 			$user = $manager->getUser($_POST['login']); /*bcrypt*/
-			if(($user and password_verify($_POST['pass'], $user->pass())) && ($user->admin() === "1")){
-				$_SESSION['id'] = $user->id();
-				$_SESSION['admin'] = $user->admin();
-				$_SESSION['login'] = $user->login();
-				header('location:index.php?action=Dashboard');
-				return;
-			} 
-			else if($user and password_verify($_POST['pass'], $user->pass())){
-				$_SESSION['id'] = $user->id();
-				$_SESSION['login'] = $user->login();
-				header('location:index.php?action=index');
-				return;
-			}
-
-			else {
-				$_SESSION['errors'] = 'Login ou mot de passe incorrect';
-			}
+			$_SESSION['id'] = $user->id();
+			$_SESSION['admin'] = $user->admin();
+			$_SESSION['login'] = $user->login();
+			header('location:index.php?action=index');
+			return;
 		}
 		header('location:index.php?action=Login');
-		return;
-
-	
-		
-		
+		return;	
 	}
-
-	
-
-
-
 
 		// arret de la session lors de la demande de deconnection depuis le dashboard, redirection
 	public function Disconnection() {
