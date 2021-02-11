@@ -7,7 +7,7 @@
         <title><?= $title ?></title>
         <meta name="description" content="Projet 5"> 
         <!-- lien css -->
-        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" >
+        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2/dist/tailwind.min.css" >
         <!-- lien leaflet -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="

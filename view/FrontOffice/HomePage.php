@@ -69,8 +69,8 @@
 			<img class="w-96 border-8 border-solid rounded-2xl border-green-500" alt="image carte europe" src="images/carteeuropenous.PNG">
 			<div class=" w-2/5 p-8">
 				<p class=" text-2xl text-green-800 text-center pb-12">Vous souhaitez découvrir les points forts de notre voyage, alors cliquez sur le bouton ci-dessous pour suivre notre itinéraire. Nous mettons à jour régulièrement nos coups de coeur...</p>
-				<div class="text-center">
-					<a class="bg-yellow-400 border-2 border-solid rounded-lg border-green-600 hover:bg-green-800 hover:text-white p-6 text-center  " href="index.php?action=Map" title="Carte interactive">Accéder à notre itinéraire</a>
+				<div class="animate-bounce bg-yellow-400 border-2 border-solid rounded-lg border-green-600 hover:text-white hover:bg-green-800 w-80 text-center m-auto p-1 mt-8">
+					<a href="index.php?action=Map" title="Carte interactive">Accéder à notre itinéraire</a>
 				</div>
 				
 			</div>
