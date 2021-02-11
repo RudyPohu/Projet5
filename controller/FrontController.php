@@ -6,26 +6,32 @@ use Model\{PostManager, CommentManager, MarkerManager, UserManager};
 
 class frontController {
 
+	private $postManager;
+	private $userManager;
+	private $commentManager;
+	private $markerManager;
+
+	public function __construct() {
+		$this->postManager = new PostManager();
+		$this->userManager = new UserManager();
+		$this->commentManager = new CommentManager();
+		$this->markerManager = new MarkerManager();
+	}
+
 	public function index()	{
-		$manager = new PostManager();
-		$posts = $manager->getPost();
+		$posts = $this->postManager->getThreePost();
 		
 		if(isset($_SESSION['admin']) or (isset($_SESSION['id'])) ) {
-			$manager = new UserManager();
-			$user = $manager->FindUser();
+			$user = $this->userManager->FindUser();
 			require "../view/FrontOffice/HomePage.php";
 		} 
 		else {
 			require "../view/FrontOffice/HomePage.php";
-		}
-		
-	
-		
+		}		
 	}
 
 	public function Posts() {
-		$manager = new PostManager();
-		$posts = $manager->getPost();
+		$posts = $this->postManager->getPost();
 		require '../view/FrontOffice/Posts.php';
 	}
 
@@ -36,9 +42,8 @@ class frontController {
 			return;
 		}
 		$manager = new PostManager();
-		$post = $manager->getOnePost($id);
-		$managerComments = new CommentManager();
-		$comments = $managerComments->getComments($id);
+		$post = $this->postManager->getOnePost($id);
+		$comments = $this->commentManager->getComments($id);
 		require '../view/FrontOffice/PostAndComments.php';	
 	}
 
@@ -47,8 +52,7 @@ class frontController {
 	}
 
 	public function GetMarkers(){
-		$manager = new MarkerManager();
-		$Markers = $manager->GetMarkers();
+		$Markers = $this->markerManager->GetMarkers();
 		echo json_encode($Markers);
 	}
 
@@ -72,8 +76,7 @@ class frontController {
 		}
 
 		if($errors === 0) {
-			$manager = new CommentManager();
-			$manager->Store($_POST['post_id'], $_POST['author'], $_POST['comment']);
+			$this->commentManager->Store($_POST['post_id'], $_POST['author'], $_POST['comment']);
 			header('location: index.php?action=OnePost&post_id='.$_POST['post_id']);
 		} 
 		else {

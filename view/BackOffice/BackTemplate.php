@@ -23,10 +23,9 @@
     </head>
 
     <body>
-        <header>
-                
+        <header>         
             <div class="h-20 border-b-2 border-green-800 flex justify-between items-center  bg-green-400  px-12  w-full  ">
-                <div id="">
+                <div>
                     <h3 class="text-3xl text-green-800 font-bold p-3"> TABLEAU DE BORD </h3>
                 </div>
 <!--le menu-->
@@ -65,7 +64,7 @@
         </div>
 
         <footer class="bg-green-500">            
-            <p class="text-center text-green-700">Copyright Rudy POHU - Etudiant chez OpenClassrooms - 2020</p>    
+            <p class="text-center text-green-700">&#xA9;  Rudy POHU - 2020 - Etudiant chez OpenClassrooms</p>    
         </footer>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="

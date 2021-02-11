@@ -1,7 +1,7 @@
 <?php $title = "Carte"; ?>
 <?php ob_start(); ?>
    
-<section class="bg-yellow-400 p-8">
+<div class="bg-yellow-400 p-8">
 
 
 
@@ -12,16 +12,16 @@
 $content = ob_get_clean();
 ob_start();
 ?>
-	<script type="text/javascript" src="js/map.js"></script>
+	<script src="js/map.js"></script>
 
-	<script type="text/javascript">
+	<script>
 		window.onload = function() {
 			map.initMap();
 			map.initMarker();
 		}
 	</script>
 
-</section>
+</div>
 
 <?php
 $script= ob_get_clean();

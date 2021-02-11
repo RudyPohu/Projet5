@@ -4,6 +4,20 @@ namespace Model;
 
 class PostManager extends Bdd {
 	
+	 // fonction permettant l'affichage des articles, limite de 3
+	public function getThreePost() {
+		$this->getBDD();
+		$datas = [];
+		$q = $this->_db->query('SELECT id, title, content, DATE_FORMAT(date_post, \'%d/%m/%Y\') AS date FROM posts ORDER BY id LIMIT 0, 3');
+		$posts = $q->fetchAll(\PDO::FETCH_ASSOC);
+		$q->closeCursor();
+		foreach($posts as $post) {
+		 	$thispost = new Post($post);
+		 	array_push($datas, $thispost);
+		}
+		return $datas;
+	}
+
 	 // fonction permettant l'affichage des articles, limite de 10
 	public function getPost() {
 		$this->getBDD();

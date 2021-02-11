@@ -2,14 +2,18 @@
 
 namespace Controller;
 
-use Model\{PostManager, MarkerManager};
+use Model\{PostManager, MarkerManager, CommentManager};
 
 class AdminController {
 
 	private $postManager;
+	private $markerManager;
+	private $commentManager;
 
 	public function __construct() {
 		$this->postManager = new PostManager();
+		$this->markerManager = new MarkerManager();
+		$this->commentManager = new CommentManager();
 	}
     
     	//affichage de la page nouveau post du dashboard
@@ -61,8 +65,7 @@ class AdminController {
 	public function UpdatePost() {
 		if(isset($_SESSION['admin'])) {
 			$id = $_GET['Post_id'] ?? '';
-			$manager = new PostManager();
-			$post = $manager->getOnePost($id);
+			$post = $this->postManager->getOnePost($id);
 			require "../view/BackOffice/UpdatePost.php";
 		} 
 		else {
@@ -85,8 +88,7 @@ class AdminController {
 			$_SESSION['errors'] .= 'Le contenu du chapitre n\'a pas un format valide.';
 		}
 		if($errors === 0) {
-			$manager = new PostManager(); 
-			$manager->Update($_POST['id'], $_POST['title'], $_POST['content']);
+			$this->postManager->Update($_POST['id'], $_POST['title'], $_POST['content']);
 			header('location: index.php?action=ListPost');
 		} 
 		else {
@@ -99,8 +101,7 @@ class AdminController {
 	public function DeletePost() {
 		if(isset($_SESSION['admin'])) {
 			$id = $_GET['Post_id'] ?? '';
-			$manager = new PostManager();
-			$post = $manager->getOnePost($id);
+			$post = $this->postManager->getOnePost($id);
 			require "../view/BackOffice/DeletePost.php";
 		} 
 		else {
@@ -112,8 +113,7 @@ class AdminController {
 	public function Delete() {		
 		if(isset($_SESSION['admin'])) {
 			$id = $_GET['Post_id'] ?? '';	
-			$manager = new PostManager(); 
-			$manager->Delete($id);
+			$this->postManager->Delete($id);
 			header('location: index.php?action=ListPost');	
 		}
 		else {
@@ -144,21 +144,109 @@ class AdminController {
 			$errors++;
 			$_SESSION['errors'] .= 'La longitude de votre destination n\'est pas renseignée. ';
 		}
-		// if(empty($_POST['img'])) {
-		// 	$errors++;
-		// 	$_SESSION['errors'] .= 'Veuillez insérer une photo de votre destination. ';
-		// }
+		if(empty($_POST['link'])) {
+			$errors++;
+			$_SESSION['errors'] .= 'Veuillez renseigner le lien vers l\'article correspondant à la destination. ';
+		}
 		if(empty($_POST['content']) or mb_strlen($_POST['content']) <= 5) {
 			$errors++;
 			$_SESSION['errors'] .= 'Le contenu de la destination n\'a pas un format valide.';
 		}
 		if($errors === 0) {
-			$manager = new MarkerManager();
-			$manager->StoreMarker($_POST['name'], $_POST['lat'], $_POST['lon'], $_POST['content']);
+			$this->markerManager->StoreMarker($_POST['name'], $_POST['lat'], $_POST['lon'], $_POST['link'], $_POST['content']);
 			header('location: index.php?action=Map');
 		} 
 		else {
 			header('location: index.php?action=Dashboard');
+			return;
+		}
+	}
+
+	public function GetListMarkers(){
+		if(isset($_SESSION['admin'])) {
+			$markers = $this->markerManager->GetMarkers();
+			require '../view/BackOffice/ListMarkers.php';
+		} else {
+			echo "Vous ne pouvez pas accéder à cette rubrique !";
+		}
+		
+	}
+
+	public function UpdateMarker() {
+		if(isset($_SESSION['admin'])) {
+			$id = $_GET['Marker_id'] ?? '';
+			$marker = $this->markerManager->GetOneMarker($id);
+			require "../view/BackOffice/UpdateMarker.php";
+		} 
+		else {
+			echo "Vous ne pouvez pas accéder à cette rubrique !";
+		}
+	}
+
+	public function UpdateOneMarker() {
+		$errors = 0;
+		$error_messages = [];
+		$_SESSION['errors'] = '';
+		
+		if(empty($_POST['name'])) {
+			$errors++;
+			$_SESSION['errors'] .= 'Le nom est vide. ';
+		}
+		if(empty($_POST['lat'])) {
+			$errors++;
+			$_SESSION['errors'] .= 'La latitude est vide. ';
+		}
+		if(empty($_POST['lon'])) {
+			$errors++;
+			$_SESSION['errors'] .= 'La longitude est vide. ';
+		}
+		if(empty($_POST['link'])) {
+			$errors++;
+			$_SESSION['errors'] .= 'Le lien vers l\'article est vide. ';
+		}
+		if(empty($_POST['content']) or mb_strlen($_POST['content']) <= 5) {
+			$errors++;
+			$_SESSION['errors'] .= 'Le contenu du marker n\'a pas un format valide.';
+		}
+		if($errors === 0) {
+			$this->markerManager->UpdateOneMarker($_POST['id'], $_POST['name'], $_POST['lat'], $_POST['lon'], $_POST['link'], $_POST['content']);
+			header('location: index.php?action=ListMarkers');
+		} 
+		else {
+			header('location: index.php?action=dashboard');
+			return;
+		}
+	}
+
+	public function DeleteMarker() {
+		if(isset($_SESSION['admin'])) {
+			$id = $_GET['Marker_id'] ?? '';	
+			$this->markerManager->DeleteMarker($id);
+			header('location: index.php?action=ListMarkers');	
+		}
+		else {
+			header('location: index.php?action=dashboard');
+			return;
+		}
+	}
+
+	public function ListComments() {
+		if(isset($_SESSION['id'])) {
+			$comments = $this->commentManager->ListComments();
+			require '../view/BackOffice/ListComments.php';
+		} else {
+			echo "Vous ne pouvez pas accéder à cette rubrique !";
+		}
+	}
+
+	public function DeleteComment() {
+		if(isset($_SESSION['admin'])) {
+			$id = $_GET['id'] ?? '';	
+			$this->commentManager->DeleteComment($id);
+			header('location: index.php?action=ListComments');	
+		}
+		else {
+			header('location: index.php?action=dashboard');
 			return;
 		}
 	}

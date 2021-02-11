@@ -98,6 +98,11 @@ switch($action) {
 		$controller->Delete();
 	break;
 
+	case 'ListMarkers':
+		$controller = new AdminController();
+		$controller->GetListMarkers();
+	break;
+
 	case 'NewMarker':
 		$controller = new AdminController();
 		$controller->NewMarker();
@@ -108,11 +113,38 @@ switch($action) {
 		$controller->StoreMarker();
 	break;	
 
+	case 'UpdateMarker':
+		$controller = new AdminController();
+		$controller->UpdateMarker();
+	break;
+
+	case 'UpdateOneMarker':
+		$controller = new AdminController();
+		$controller->UpdateOneMarker();
+	break;
+
+	case 'DeleteMarker':
+		$controller = new AdminController();
+		$controller->DeleteMarker();
+	break;
+
+	case 'ListComments':
+		$controller = new AdminController();
+		$controller->ListComments();
+	break;
+
+	case 'DeleteComment':
+		$controller = new AdminController();
+		$controller->DeleteComment();
+	break;
+
 	case 'Disconnection':
 		$controller = new UserController();
 		$controller->Disconnection();
 	break;
 
-	
+	default:
+		echo '404';
+	break;
 }
 

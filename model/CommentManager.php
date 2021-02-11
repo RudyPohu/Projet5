@@ -25,4 +25,23 @@ class CommentManager extends Bdd {
 		$req->execute(array($post_id, $author, $comment));
 		$req->closeCursor();
 	}
+
+	public function ListComments() {
+		$this->getBDD();
+		$donnees = [];
+		$q = $this->_db->query('SELECT id, post_id, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y\') AS date FROM comments ORDER BY post_id');
+		$comments = $q->fetchAll(\PDO::FETCH_ASSOC);
+		$q->closeCursor();
+		foreach($comments as $comment) {
+		  	$donnees[] = new Comment($comment);
+		}
+		return $donnees;
+	}
+
+	public function DeleteComment($id) {
+		$this->getBDD();
+		$req = $this->_db->prepare('DELETE FROM comments WHERE id = ?');
+		$req->execute(array($id));
+		$req->closeCursor();
+	}
 }
