@@ -144,7 +144,8 @@ switch($action) {
 	break;
 
 	default:
-		echo '404';
+		$controller = new FrontController();
+		$controller->ErrorPage();
 	break;
 }
 

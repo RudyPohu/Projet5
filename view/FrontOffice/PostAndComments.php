@@ -37,7 +37,7 @@
 		<!-- formulaire pour laisser un commentaire -->
 	<?php if(isset($_SESSION['id']) or isset($_SESSION['admin'])) {
         ?>
-        <form class="w-5/12 bg-green-400 m-auto mb-4 p-8 border-2 border-solid rounded-lg border-green-600" action="index.php?action=StoreComment" method="post" >
+        <form class="md:w-5/12 bg-green-400 m-auto mb-4 p-8 border-2 border-solid rounded-lg border-green-600" action="index.php?action=StoreComment" method="post" >
 			<h2 class="text-3xl text-green-900 p-4">Laisser votre commentaire :</h2>
 			<?php
 			if(isset($_SESSION['errors'])) {
@@ -69,6 +69,7 @@
     }
     ?>
 	
+	<div class=" bg-green-400 border-2 border-solid rounded-lg border-green-600 hover:text-white hover:bg-green-800 w-80 text-center m-auto p-1 mt-8"><a href="index.php?action=Posts">Retour à la liste des chapitres</a>
 
 	 
 </section>	

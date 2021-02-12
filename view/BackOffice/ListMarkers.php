@@ -10,7 +10,7 @@
     ?>
    
         <div class="p-4 border-solid border-b-8 border-green-800">
-            <p class="text-3xl text-green-600 mb-8">
+            <div class="text-3xl text-green-600 mb-8">
                 <?php echo htmlspecialchars($marker->name()); ?>
                 <span class="text-base">, publié le <?php echo $marker->getDate(); ?></span><br>
 
@@ -18,14 +18,11 @@
                 <p class="text-lg ">Longitude:<span class="text-base  text-green-600"> <?php echo $marker->lon(); ?></span></p>
                 <p class="text-lg">Contenu du marqueur:<span class="text-base  text-green-600"> <?php echo $marker->content(); ?></span></p>
                 <p class="text-lg">Lien vers l'article:<span class="text-base  text-green-600"> <?php echo $marker->link(); ?></span></p>
-                
+            </div>  
 
-            </p> 
-            
-
-        
             <div class="flex justify-end">
-                <div class="bg-green-600 text-white border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-1 mx-1 w-64 text-center"> <a href="index.php?action=UpdateMarker&Marker_id=<?php echo $marker->id(); ?> ">Modifier ce marqueur</a></div>
+                <div class="bg-green-600 text-white border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-1 mx-1 w-64 text-center"> <a href="index.php?action=UpdateMarker&Marker_id=<?php echo $marker->id(); ?> ">Modifier ce marqueur</a>
+                </div>
                 <div class="bg-green-600 text-white border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-1 mx-1 w-64 text-center"> 
                     <a onclick="return confirm('Etes vous sur de vouloir supprimer ce marker ?')" href="index.php?action=DeleteMarker&Marker_id=<?php echo $marker->id(); ?> ">Supprimer ce marqueur</a>
                 </div>

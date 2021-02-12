@@ -18,6 +18,10 @@ class frontController {
 		$this->markerManager = new MarkerManager();
 	}
 
+	public function ErrorPage() {
+		require '../view/FrontOffice/ErrorPage.php';
+	}
+
 	public function index()	{
 		$posts = $this->postManager->getThreePost();
 		
