@@ -31,7 +31,7 @@
 <!--le menu-->
                     <?php if(isset($_SESSION['admin'])) {
                         ?>
-                        <h3 class="text-2xl text-green-700 font-bold p-3"><?php echo $_SESSION['login'];  ?> ,Vous êtes connecté</h3> 
+                        <h3 class="text-2xl text-green-700 font-bold p-3"><?php echo htmlspecialchars($_SESSION['login']);  ?> ,Vous êtes connecté</h3> 
                     <?php 
                     }
                     else {

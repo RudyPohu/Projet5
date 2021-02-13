@@ -24,7 +24,7 @@
 
                     <?php if(isset($_SESSION['id'])) {
                         ?>
-                        <h3 class="md:text-2xl text-yellow-500 font-bold p-3"><?php echo $_SESSION['login'];  ?> ,Vous êtes connecté</h3> 
+                        <h3 class="md:text-2xl text-yellow-500 font-bold p-3"><?php echo htmlspecialchars($_SESSION['login']) ;  ?> ,Vous êtes connecté</h3> 
                     <?php 
                     }
                     else {

@@ -17,7 +17,7 @@
             
             <?php 
             if(strlen($post->content()) > 200) {
-                echo substr ($post->content(), 0, 400);
+                echo substr (htmlspecialchars($post->content(), 0, 400));
                 ?> <p>[...]</p>
                 <?php
             } else {

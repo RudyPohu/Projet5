@@ -47,7 +47,7 @@
 			?>
 		    <p>
 		        <label id="author">Votre pseudo:</label> : <br />
-		        <input class=" w-64 border-2 border-solid rounded-lg border-green-600  p-1 m-2" type="text" name="author" value="<?php echo $_SESSION['login'];  ?>" /><br /><br />
+		        <input class=" w-64 border-2 border-solid rounded-lg border-green-600  p-1 m-2" type="text" name="author" value="<?php echo htmlspecialchars($_SESSION['login']);  ?>" /><br /><br />
 		        <label id="comment">Votre message:</label> : <br />
 		        <textarea class=" w-96 border-2 border-solid rounded-lg border-green-600  p-1 m-2" name="comment" rows="6" cols="25"></textarea><br />
 		        <input type="hidden" name="post_id" value="<?php echo $post->id(); ?>" /><br />
