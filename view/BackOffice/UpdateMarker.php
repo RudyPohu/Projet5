@@ -17,7 +17,7 @@
 		        <label class="text-green-600 " id="link">Modification du lien vers le chapitre:</label><br /><br />
 		        <input class="border-2 border-solid rounded-lg border-green-800 pl-4 py-2" type="text" name="link" value="<?php echo htmlspecialchars($marker->link()); ?>" /><br /><br />
 		        <label class="text-green-600 " id="content">Modification du contenu:</label> : <br /><br />
-		        <textarea class="w-full border-2 border-solid rounded-lg border-green-800 p-4" id="tiny" name="content" rows="25" cols="150"><?php echo $marker->content(); ?></textarea><br />
+		        <textarea class="w-full border-2 border-solid rounded-lg border-green-800 p-4" id="tiny" name="content" rows="25" cols="150"><?php echo htmlspecialchars($marker->content()); ?></textarea><br />
 				<input type="hidden" name="id" value="<?= $marker->id() ?>">
 		        
 		        <div class="flex justify-end">

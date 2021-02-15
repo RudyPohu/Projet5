@@ -11,7 +11,7 @@
 		        <label class="text-green-600 " id="title">Modification du titre:</label><br /><br />
 		        <input class="border-2 border-solid rounded-lg border-green-800 pl-4 py-2" type="text" name="title" value="<?php echo htmlspecialchars($post->title()); ?>" /><br /><br />
 		        <label class="text-green-600 " id="content">Modification du contenu:</label> : <br /><br />
-		        <textarea class="w-full border-2 border-solid rounded-lg border-green-800 p-4" id="tiny" name="content" rows="25" cols="150"><?php echo $post->content(); ?></textarea><br />
+		        <textarea class="w-full border-2 border-solid rounded-lg border-green-800 p-4" id="tiny" name="content" rows="25" cols="150"><?php echo htmlspecialchars($post->content()); ?></textarea><br />
 				<input type="hidden" name="id" value="<?= $post->id() ?>">
 		        <div class="flex justify-end">
 		        	<input class="bg-green-600 text-white border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-1 mt-4 w-64 text-center" type="submit" value="Modifier ce chapitre" />

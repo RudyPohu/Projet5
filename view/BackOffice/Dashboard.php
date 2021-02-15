@@ -3,7 +3,7 @@
    
 
 <div class="bg-green-800 pb-20 ">
-    <h1 class=" text-3xl text-green-600 ml-24 pt-8">Bonjour <?php echo $_SESSION['login'];  ?>, bienvenue dans votre tableau de bord.</h1>
+    <h1 class=" text-3xl text-green-600 ml-24 pt-8">Bonjour <?php echo htmlspecialchars($_SESSION['login']);  ?>, bienvenue dans votre tableau de bord.</h1>
 
     <h2 class=" text-2xl text-green-600 ml-24 p-8">Que voulez-vous faire aujourd'hui ?</h2>
     

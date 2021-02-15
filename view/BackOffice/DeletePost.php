@@ -9,10 +9,10 @@
         <div class="p-4 border-solid border-b-8 border-green-800">
             <p class="text-3xl text-green-600 mb-8">
                 <?php echo htmlspecialchars($post->title()); ?>
-                <span class="text-base">, publié le <?php echo $post->getDate(); ?></span>
+                <span class="text-base">, publié le <?php echo htmlspecialchars($post->getDate()); ?></span>
             </p> 
             
-            <?php echo $post->content(); ?>
+            <?php echo htmlspecialchars($post->content()); ?>
 
 
         	<div class="flex justify-end mt-8"> 

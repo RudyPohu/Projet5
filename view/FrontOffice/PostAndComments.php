@@ -26,7 +26,7 @@
 
 		<div class="w-6/12 bg-white m-auto mb-4 p-8 border-2 border-solid rounded-lg border-green-600">
 		
-			<p class=" text-2xl text-green-600"><strong><?php echo htmlspecialchars($comment->author()); ?></strong> le <?php echo ($comment->getDate()); ?></p>
+			<p class=" text-2xl text-green-600"><strong><?php echo htmlspecialchars($comment->author()); ?></strong> le <?php echo htmlspecialchars($comment->getDate()); ?></p>
 			<p><?php echo nl2br(htmlspecialchars($comment->comment())); ?></p>
 
 		</div>
@@ -41,7 +41,7 @@
 			<h2 class="text-3xl text-green-900 p-4">Laisser votre commentaire :</h2>
 			<?php
 			if(isset($_SESSION['errors'])) {
-				echo $_SESSION['errors'];
+				echo htmlspecialchars($_SESSION['errors']);
 				unset($_SESSION['errors']);
 			}
 			?>

@@ -15,7 +15,7 @@
                 <?php
                 if(isset($_SESSION['errors'])) 
                 {
-                    echo $_SESSION['errors'];
+                    echo htmlspecialchars($_SESSION['errors']);
                     unset($_SESSION['errors']);
                 }
                 ?>
@@ -38,7 +38,7 @@
                 <?php
                 if(isset($_SESSION['errors'])) 
                 {
-                    echo $_SESSION['errors'];
+                    echo htmlspecialchars($_SESSION['errors']);
                     unset($_SESSION['errors']);
                 }
                 ?>

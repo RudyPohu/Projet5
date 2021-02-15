@@ -37,11 +37,11 @@
 			    <div class="text-center ">
 			        <h3 class="text-3xl text-green-600 pb-4">
 			            <?php echo htmlspecialchars($post->title()); ?>
-			            <br /><em class="text-sm text-green-600 ">Publié le <?php echo $post->getDate(); ?></em>
+			            <br /><em class="text-sm text-green-600 ">Publié le <?php echo htmlspecialchars($post->getDate()) ; ?></em>
 			        </h3> 
 			        
                     <?php 
-		            if(strlen($post->content()) > 200) {
+		            if(strlen(htmlspecialchars($post->content())) > 200) {
 		                echo substr (htmlspecialchars($post->content()), 0, 400);
 		                ?> <p>[...]</p>
 		                <?php

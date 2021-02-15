@@ -12,12 +12,12 @@
         <div class="p-4 border-solid border-b-8 border-green-800">
             <p class="text-3xl text-green-600 mb-8">
                 <?php echo htmlspecialchars($post->title()); ?>
-                <span class="text-base">, publié le <?php echo $post->getDate(); ?></span>
+                <span class="text-base">, publié le <?php echo htmlspecialchars($post->getDate()); ?></span>
             </p> 
             
             <?php 
-            if(strlen($post->content()) > 200) {
-                echo substr (htmlspecialchars($post->content(), 0, 400));
+            if(strlen(htmlspecialchars($post->content())) > 200) {
+                echo substr (htmlspecialchars($post->content()), 0, 400);
                 ?> <p>[...]</p>
                 <?php
             } else {
@@ -26,8 +26,8 @@
             ?>
         
             <div class="flex justify-end">
-                <div class="bg-green-600 text-white border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-1 mx-1 w-64 text-center"> <a href="index.php?action=UpdatePost&Post_id=<?php echo $post->id(); ?> ">Modifier ce chapitre</a></div>
-                <div class="bg-green-600 text-white border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-1 mx-1 w-64 text-center"> <a href="index.php?action=DeletePost&Post_id=<?php echo $post->id(); ?> ">Supprimer ce chapitre</a></div>
+                <div class="bg-green-600 text-white border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-1 mx-1 w-64 text-center"> <a href="index.php?action=UpdatePost&Post_id=<?php echo htmlspecialchars($post->id()); ?> ">Modifier ce chapitre</a></div>
+                <div class="bg-green-600 text-white border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-1 mx-1 w-64 text-center"> <a href="index.php?action=DeletePost&Post_id=<?php echo htmlspecialchars($post->id()); ?> ">Supprimer ce chapitre</a></div>
             </div> 
 
         </div>

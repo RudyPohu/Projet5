@@ -12,11 +12,11 @@
         <div class="p-4 border-solid border-b-8 border-green-800">
             <p class="text-3xl text-green-600 mb-8">
                 <?php echo htmlspecialchars($comment->author()); ?>
-                <span class="text-base">, publié le <?php echo $comment->getDate(); ?></span>
+                <span class="text-base">, publié le <?php echo htmlspecialchars($comment->getDate()); ?></span>
             </p> 
             <p class="text-lg"> Commentaire:<span class="text-base  text-green-600"> <?php echo htmlspecialchars($comment->comment()); ?></span></p>
             <div class="flex justify-end">
-                <div class="bg-green-600 text-white border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-1 mx-1 w-64 text-center"> <a href="index.php?action=DeleteComment&id=<?php echo $comment->id(); ?> ">Supprimer ce commentaire</a></div>
+                <div class="bg-green-600 text-white border-2 border-solid rounded-lg border-green-800 hover:text-black hover:bg-green-500 p-1 mx-1 w-64 text-center"> <a href="index.php?action=DeleteComment&id=<?php echo htmlspecialchars($comment->id()); ?> ">Supprimer ce commentaire</a></div>
             </div> 
 
         </div>
